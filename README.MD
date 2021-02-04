@@ -4,7 +4,7 @@
 3. написать последовательно команды
 
 ```bash
-pip install speech_recognition, pipwin
+pip install SpeechRecognition pipwin
 pipwin install pyaudio
 ```
 
