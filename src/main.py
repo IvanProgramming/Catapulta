@@ -18,6 +18,7 @@ def audio_handler():
         print("Talk Now")
         data = r.record(source, duration=4)
         full_text = r.recognize_google(data, language='ru', show_all=True)
+        print(full_text)
         for command in commands:
             similarities = []
             try:
