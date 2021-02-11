@@ -5,8 +5,8 @@ class MovementInterface:
     def prepare(self):
         pass
 
-    def turn_left(self):
+    def turn_left(self, degree_value):
         pass
 
-    def turn_right(self):
+    def turn_right(self, degree_value):
         pass
