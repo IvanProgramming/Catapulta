@@ -1,5 +1,3 @@
-from builtins import function
-
 import speech_recognition as sr
 import difflib
 
@@ -11,7 +9,7 @@ commands = [
 DIGITS_DICT = {48: None, 49: None, 50: None, 51: None, 52: None, 53: None, 54: None, 55: None, 56: None, 57: None}
 
 
-def audio_handler(turn_callback: function, fire_callback: function):
+def audio_handler(turn_callback, fire_callback):
     r = sr.Recognizer()
     words = []
 
