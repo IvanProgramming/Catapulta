@@ -27,7 +27,6 @@ class Stepper:
     def make_step(self):
         current_step = self.SEQUENCE[self.current_index]
         current_step_as_list = list(map(int, bin(current_step)[2:].rjust(len(self.pins), "0")))
-        print(current_step_as_list)
         for index in range(len(self.pins)):
             GPIO.output(self.pins[index], current_step_as_list[index])
         self.current_index += self.step
