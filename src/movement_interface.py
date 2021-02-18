@@ -4,9 +4,10 @@ from stepper import Stepper
 
 
 class MovementInterface:
-    def __init__(self, stepper_pins, servo_pin):
+    def __init__(self, stepper_pins, servo1_pin, servo2_pin):
         GPIO.setmode(GPIO.BCM)
-        self.servo = Servo(servo_pin)
+        self.servo1 = Servo(servo1_pin)
+        self.servo2 = Servo(servo2_pin)
         self.stepper = Stepper(stepper_pins)
 
     def shot(self):

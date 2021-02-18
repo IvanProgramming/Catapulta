@@ -39,18 +39,26 @@ class Stepper:
         self.step = -self.step
 
     def turn_degree(self, degree):
+        degree = degree * (1288 / 360)
         steps = int(degree / 360 * self.full_turnover)
         if steps < 0:
             steps = abs(steps)
             self.change_direction()
+            change_on_end = True
+        else:
+            change_on_end = False
         for __ in range(steps):
             self.make_step()
             time.sleep(0.001)
-        self.change_direction()
+        if change_on_end:
+            self.change_direction()
+
 
 
 if __name__ == '__main__':
     GPIO.setmode(GPIO.BCM)
     stp = Stepper(
-        [24, 25, 8, 7])
-    stp.turn_degree(360)
+        [9, 11, 0, 5])
+    for __ in range(360 // 15):
+        stp.turn_degree(15)
+        time.sleep(0.5)
