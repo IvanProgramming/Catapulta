@@ -54,7 +54,6 @@ class Stepper:
             self.change_direction()
 
 
-
 if __name__ == '__main__':
     GPIO.setmode(GPIO.BCM)
     stp = Stepper(
