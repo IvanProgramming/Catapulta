@@ -139,3 +139,5 @@ cython_debug/
 
 # PyCharm Ignore
 .idea/
+
+src/artem_sketches.py
