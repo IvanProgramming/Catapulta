@@ -28,21 +28,7 @@ if __name__ == '__main__':
     servo = Servo(14)
     servo2 = Servo(15)
 
-    servo.set_servo_angle(-15, hold=True)
-    for angle in range(-15, 130):
-        duty_cycle = angle / 18 + 3.
-        servo.servo_pwm.ChangeDutyCycle(duty_cycle)
-        sleep(0.007)
-    sleep(1.5)
-    servo.set_servo_angle(127, hold=True)
-    servo2.set_servo_angle(0)
-    servo2.set_servo_angle(-30)
-    for angle in range(127, -15, -1):
-        duty_cycle = angle / 18 + 3.
-        servo.servo_pwm.ChangeDutyCycle(duty_cycle)
-        sleep(0.007)
-    servo.set_servo_angle(-15)
-    servo2.set_servo_angle(0)
+
     exit()
 
 

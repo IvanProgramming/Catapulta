@@ -58,6 +58,4 @@ if __name__ == '__main__':
     GPIO.setmode(GPIO.BCM)
     stp = Stepper(
         [9, 11, 0, 5])
-    for __ in range(360 // 15):
-        stp.turn_degree(15)
-        time.sleep(0.5)
+    stp.turn_degree(360)

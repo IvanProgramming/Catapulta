@@ -13,24 +13,24 @@ class MovementInterface:
         self.stepper = Stepper(stepper_pins)
 
     def shot(self):
-        self.servo2.servo_pwm.stop()
-        sleep(0.5)
-        self.servo1.set_servo_angle(0)
-        sleep(0.5)
         self.servo2.set_servo_angle(0)
 
     def prepare(self):
-        self.servo1.set_servo_angle(-15)
-        self.servo2.set_servo_angle(20, hold=True)
-        self.servo1.set_servo_angle(50, hold=True)
-        for i in range(25, -35, -1):
-            duty_cycle = i / 18 + 3.
-            # self.servo1.servo_pwm.ChangeDutyCycle(duty_cycle - 0.9)
-            self.servo2.servo_pwm.ChangeDutyCycle(duty_cycle)
-            self.servo2.dutyCycle = duty_cycle
-            sleep(0.001)
+        self.servo2.set_servo_angle(0)
+        self.servo1.set_servo_angle(-20, hold=True)
+        for angle in range(-20, 160):
+            duty_cycle = angle / 20 + 3.
+            self.servo1.servo_pwm.ChangeDutyCycle(duty_cycle)
+            sleep(0.0125)
+        sleep(2)
+        for angle in range(160, 127, -1):
+            duty_cycle = angle / 20 + 3.
+            self.servo1.servo_pwm.ChangeDutyCycle(duty_cycle)
+            sleep(0.0125)
+        self.servo2.set_servo_angle(0)
+        self.servo2.set_servo_angle(-30)
+        self.servo1.set_servo_angle(-20)
 
-        self.servo2.set_servo_angle(90, hold=True)
 
     def turn(self, degree_value):
         self.stepper.turn_degree(degree_value)

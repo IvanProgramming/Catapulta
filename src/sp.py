@@ -33,7 +33,7 @@ class SpeechHandler:
                         similarities.append(
                             {"sim": SpeechHandler.similarity(variant, command.lower()), "transcript": variant_src["transcript"]})
                 except TypeError:
-                    print("Nothing Heard!")
+                    fire()
                     return
                 sim_index = SpeechHandler.find_max_index(similarities, lambda x: x["sim"])
                 words.append(similarities[sim_index])
@@ -50,7 +50,10 @@ class SpeechHandler:
                 except ValueError:
                     print("FIRE!")
             else:
-                self.turn_callback(-int(argument))
+                try:
+                    self.turn_callback(-int(argument))
+                except ValueError:
+                    print("FIRE!")
 
         # Пуск
         else:
